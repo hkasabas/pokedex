@@ -23,7 +23,7 @@ export class PokemonList extends React.Component<IProps, any> {
 							<li
 								key={item.name}
 								onClick={(event) => this.onItemClick(item)}
-								className="list-group-item">
+								className="pokedex-pokemonList__listItem list-group-item">
 								{item.name}
 							</li>
 						)

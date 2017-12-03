@@ -82,3 +82,7 @@ HTML, BODY {
 	height: 100%;
 	overflow: auto;
 }
+
+.pokedex-pokemonList__listItem {
+	cursor: pointer;
+}
