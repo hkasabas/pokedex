@@ -162,7 +162,6 @@ export class PokemonView extends React.Component<IProps, any> {
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Move</th>
-								<th scope="col">Username</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -172,7 +171,6 @@ export class PokemonView extends React.Component<IProps, any> {
 										<tr key={"move-" + index}>
 											<th scope="row">{index + 1}</th>
 											<td>{move.move.name}</td>
-											<td>TODO</td>
 										</tr>
 									);
 								})
