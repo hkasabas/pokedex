@@ -11,4 +11,5 @@ export class AppLayoutPage extends React.Component {
 			</div>
 		);
 	}
-};
+
+}

@@ -43,4 +43,4 @@ export class AppLayoutPageHeader extends React.Component<IProps> {
 		let newSidebarOpen = !this.context.sidebarContext.isSidebarOpen();
 		this.context.sidebarContext.toggleSidebar(newSidebarOpen)
 	}
-};
+}

@@ -26,6 +26,9 @@ class PokemonIndexContainer extends React.Component<IProps, any> {
 		router: PropTypes.object
 	};
 
+
+	// ---------- Lifecycle methods
+
 	componentDidMount() {
 		// fetch current pokemon
 		this.props.actions.fetchPokemon(this.props.pokemonReference);
@@ -60,14 +63,17 @@ class PokemonIndexContainer extends React.Component<IProps, any> {
 		);
 	}
 
-	private onAddToMyList(event : AddToMyListEvent) {
+
+	// ---------- Event handlers
+
+	onAddToMyList(event : AddToMyListEvent) {
 		let pokemonReference = event.reference;
 
 		console.log(`Adding pokemon "${pokemonReference.name}" to my list`);
 		this.props.actions.addToMyPokemonList(pokemonReference);
 	}
 
-	private onRemoveFromMyList(event : RemoveFromMyListEvent) {
+	onRemoveFromMyList(event : RemoveFromMyListEvent) {
 		let pokemonReference = event.reference;
 
 		console.log(`Removing pokemon "${pokemonReference.name}" from my list`);

@@ -30,13 +30,15 @@ export class ListFilter extends React.Component<IProps, any> {
 		);
 	}
 
-	getCustomFilterValue() : string {
-		return this.props.filterState != null ? this.props.filterState.customFilter : "";
-	}
 
 	onCustomFilterChange(event : ChangeEvent<any>) {
 		this.props.onFilterChange({
 			customFilter : event.target.value
 		});
 	}
+
+	getCustomFilterValue() : string {
+		return this.props.filterState != null ? this.props.filterState.customFilter : "";
+	}
+
 }

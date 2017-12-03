@@ -27,6 +27,8 @@ class PokemonIndexContainer extends React.Component<IProps, any> {
 		router: PropTypes.object
 	};
 
+	// ---------- Lifecycle methods
+
 	render() {
 		return (
 			<AppLayoutPage>
@@ -42,6 +44,9 @@ class PokemonIndexContainer extends React.Component<IProps, any> {
 			</AppLayoutPage>
 		);
 	}
+
+
+	// ---------- Event handlers
 
 	onItemSelect(event : PokemonSelectEvent) {
 		console.log("Selected pokemon ", event.reference.name);

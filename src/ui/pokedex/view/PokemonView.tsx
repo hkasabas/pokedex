@@ -21,6 +21,9 @@ interface IProps {
 }
 
 export class PokemonView extends React.Component<IProps, any> {
+
+	// ---------- Lifecycle methods
+
 	render() {
 		return (
 			<div>
@@ -143,7 +146,10 @@ export class PokemonView extends React.Component<IProps, any> {
 		);
 	}
 
-	private onAddToMyListButtonClick(event : MouseEvent) {
+
+	// ---------- Event handlers
+
+	onAddToMyListButtonClick(event : MouseEvent) {
 		event.preventDefault();
 
 		this.props.onAddToMyList({
@@ -151,7 +157,7 @@ export class PokemonView extends React.Component<IProps, any> {
 		});
 	}
 
-	private onRemoveFromMyListButtonClick(event : MouseEvent) {
+	onRemoveFromMyListButtonClick(event : MouseEvent) {
 		event.preventDefault();
 
 		this.props.onRemoveFromMyList({

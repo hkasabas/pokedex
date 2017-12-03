@@ -39,6 +39,8 @@ export class AppLayoutSidebar extends React.Component <IProps, IState> {
 	}
 
 	getChildContext() {
+		// create context object to allow child components communication with sidebar
+		// this is intended especially for menu toggle button, is there a better way?
 		let self = this;
 		return {
 			sidebarContext : {
@@ -55,6 +57,18 @@ export class AppLayoutSidebar extends React.Component <IProps, IState> {
 				}
 			}
 		}
+	}
+
+
+	// ---------- Lifecycle methods
+
+	componentWillMount() {
+		mql.addListener(this.mediaQueryChanged.bind(this));
+		this.setState({mql : mql, sidebarDocked : mql.matches});
+	}
+
+	componentWillUnmount() {
+		this.state.mql.removeListener(this.mediaQueryChanged);
 	}
 
 
@@ -93,6 +107,8 @@ export class AppLayoutSidebar extends React.Component <IProps, IState> {
 	}
 
 
+	// ---------- Event handlers
+
 	onNavigationItemClick(event : MouseEvent) {
 		this.openSidebar(false);
 	}
@@ -102,20 +118,16 @@ export class AppLayoutSidebar extends React.Component <IProps, IState> {
 		this.openSidebar(arguments[0]);
 	}
 
+
+
+	// ---------- private
+
+	private mediaQueryChanged() {
+		this.setState({sidebarDocked : this.state.mql.matches});
+	}
+
+
 	private openSidebar(opened : boolean) {
 		this.setState({sidebarOpen : opened});
-	}
-
-	componentWillMount() {
-		mql.addListener(this.mediaQueryChanged.bind(this));
-		this.setState({mql : mql, sidebarDocked : mql.matches});
-	}
-
-	componentWillUnmount() {
-		this.state.mql.removeListener(this.mediaQueryChanged);
-	}
-
-	mediaQueryChanged() {
-		this.setState({sidebarDocked : this.state.mql.matches});
 	}
 };

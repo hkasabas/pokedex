@@ -15,4 +15,5 @@ export class AppLayout extends React.Component {
 			</AppLayoutSidebar>
 		);
 	}
-};
+
+}
