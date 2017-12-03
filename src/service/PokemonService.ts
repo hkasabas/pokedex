@@ -16,7 +16,7 @@ export class PokemonService {
 	}
 
 	fetchPokemonIndex() : Promise<Array<IPokemonReference>> {
-		let cachedIndex : Array<IPokemonReference> = CachingService.readKey(PokemonService.CACHE_KEY_POKEMON_INDEX);
+		let cachedIndex = CachingService.readKey<Array<IPokemonReference>>(PokemonService.CACHE_KEY_POKEMON_INDEX);
 		
 		let pokemonIndexPromise;
 		// value is already cached
@@ -28,6 +28,7 @@ export class PokemonService {
 		else {
 			pokemonIndexPromise = this.pokeApiClient.fetchPokemonIndex(0, AppConfig.pokeapi.indexLimit)
 				.then((pokemonIndex) => {
+					// cache new value
 					CachingService.setKey(PokemonService.CACHE_KEY_POKEMON_INDEX, pokemonIndex);
 
 					return pokemonIndex;
@@ -38,7 +39,7 @@ export class PokemonService {
 	}
 
 	fetchPokemon(reference : IPokemonReference) : Promise<IPokemon> {
-		let pokemonCacheMap : IPokemon = CachingService.readKey(PokemonService.CACHE_KEY_POKEMON) || {};
+		let pokemonCacheMap = CachingService.readKey<{[name : string] : IPokemon}>(PokemonService.CACHE_KEY_POKEMON) || {};
 		let cachedPokemon = pokemonCacheMap != null && pokemonCacheMap[reference.name];
 
 		let pokemonPromise;
@@ -51,6 +52,7 @@ export class PokemonService {
 		else {
 			pokemonPromise = this.pokeApiClient.fetchPokemon(reference)
 				.then((pokemon) => {
+					// add fetched pokemon to cache
 					pokemonCacheMap = {
 						...pokemonCacheMap,
 						[pokemon.name] : pokemon

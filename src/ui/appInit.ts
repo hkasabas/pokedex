@@ -3,7 +3,7 @@ import {PokemonStore} from "../service/store/pokemonStore";
 import {appStore} from "../service/store/appStore";
 
 
-export function appInit(nextState : any, replace : any, callback : (_? : any) => any) {
+export function appInit(nextState : any, replace : any, callback : (error? : any) => any) {
 	return Promise.resolve(true)
 
 		// ----- initialize menu data
@@ -15,7 +15,7 @@ export function appInit(nextState : any, replace : any, callback : (_? : any) =>
 				});
 		})
 
-		//
+		// success
 		.then(() => {
 			callback();
 		})
