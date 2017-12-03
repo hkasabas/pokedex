@@ -44,7 +44,7 @@ class PokemonIndexContainer extends React.Component<IProps, any> {
 			<AppLayoutPage>
 				<AppLayoutPageHeader>
 					{this.props.pokemon &&
-						<span>{this.props.params.pokemonName} #{this.props.pokemon.id}</span>}
+						<span>{this.props.params.pokemonName} #{this.props.pokemon.id}</span>}&nbsp;
 				</AppLayoutPageHeader>
 
 				<AppLayoutPageContent>
