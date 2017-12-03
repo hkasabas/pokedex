@@ -28,11 +28,11 @@ export class PokemonView extends React.Component<IProps, any> {
 				<div className="container">
 					{/* Add/remove from my list */}
 					<div className="row">
-						<div className="col-sm">
+						<div className="col-sm text-right">
 							{this.props.isInMyList ?
 								<button name="removeFromMyList" onClick={this.onRemoveFromMyListButtonClick.bind(this)} className="btn btn-danger">Remove from my list</button>
 								:
-								<button name="addToMyList" onClick={this.onAddToMyListButtonClick.bind(this)} className="btn btn-primary">Add to my list</button>
+								<button name="addToMyList" onClick={this.onAddToMyListButtonClick.bind(this)} className="btn btn-success">Add to my list</button>
 							}
 						</div>
 					</div>
@@ -53,7 +53,7 @@ export class PokemonView extends React.Component<IProps, any> {
 							<label>Name</label>
 						</div>
 						<div className="col-sm col-9">
-							#{this.props.pokemon.name}
+							{this.props.pokemon.name}
 						</div>
 					</div>
 
@@ -101,7 +101,7 @@ export class PokemonView extends React.Component<IProps, any> {
 								.map((ability) => {
 									return (
 										<div>
-											{ability.ability.name} {(ability.is_hidden ? " (hidden ability)" : "")}
+											{ability.ability.name} {ability.is_hidden ? (<small>[hidden ability]</small>) : ""}
 										</div>);
 								})
 							}
@@ -110,10 +110,13 @@ export class PokemonView extends React.Component<IProps, any> {
 
 				</div>
 
-				<div>
+				{/* spacer */}
+				<div>&nbsp;</div>
+
+				<div className="container">
 					<h5>Moves</h5>
 
-					<table className="table">
+					<table className="table table-sm table-striped">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
