@@ -28,6 +28,7 @@ export class PokemonView extends React.Component<IProps, any> {
 		return (
 			<div>
 
+				{/* ---------- INFO ---------- */}
 				<div className="container">
 					{/* Add/remove from my list */}
 					<div className="row">
@@ -116,6 +117,43 @@ export class PokemonView extends React.Component<IProps, any> {
 				{/* spacer */}
 				<div>&nbsp;</div>
 
+
+				{/* ---------- STATS ---------- */}
+				<div className="container">
+					<h5>Stats</h5>
+
+					<table className="table table-sm table-striped">
+						<tbody>
+						{this.props.pokemon.stats
+							.sort((s1, s2) => s1.stat.name.localeCompare(s2.stat.name))
+							.map((stat) => {
+								return (
+									<tr key={"stat-" + stat.stat.name}>
+										<td>{stat.stat.name}</td>
+										<td>{stat.base_stat}</td>
+									</tr>
+								);
+							})
+						}
+						{this.props.pokemon.stats
+							.reduce((accum, stat) => [accum[0] + stat.base_stat], [0])
+							.map((totalCount) => {
+								return (
+									<tr key={"stat-total"}>
+										<td><b>Total</b></td>
+										<td><b>{totalCount}</b></td>
+									</tr>
+								);
+							})
+						}
+						</tbody>
+					</table>
+				</div>
+
+				{/* spacer */}
+				<div>&nbsp;</div>
+
+				{/* ---------- MOVES ---------- */}
 				<div className="container">
 					<h5>Moves</h5>
 
