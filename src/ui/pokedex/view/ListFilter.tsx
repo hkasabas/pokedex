@@ -25,7 +25,6 @@ export class ListFilter extends React.Component<IProps, any> {
 					value={this.getCustomFilterValue()}
 					onChange={this.onCustomFilterChange.bind(this)}
 					className="form-control"/>
-				<span className="glyphicon glyphicon-search" aria-hidden="true"></span>
 			</div>
 		);
 	}
