@@ -32,7 +32,7 @@ HTML, BODY {
 	font-weight: 400;
 }
 
-.pokedex-layoutPage__menuToggler {
+.pokedex-layoutPage__menuToggler, .pokedex-layoutPage__menuToggler:FOCUS {
 	text-decoration: none;
 	margin-right: 1rem;
 	color: inherit;
