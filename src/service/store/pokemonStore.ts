@@ -183,7 +183,7 @@ const selectFilteredPokemonIndex = (filterId : string) => createSelector(
 		let listFilter = listFilters[filterId] || null;
 		return (selectPokemonIndex || [])
 			.filter(item => {
-				return listFilter == null || item.name.match("^" + listFilter.customFilter + ".+");
+				return listFilter == null || item.name.toLowerCase().match("^" + listFilter.customFilter.toLowerCase() + ".+");
 			});
 });
 
@@ -193,7 +193,7 @@ const selectFilteredMyPokemonList = (filterId : string) => createSelector(
 		let listFilter = listFilters[filterId] || null;
 		return (selectMyPokemonList || [])
 			.filter(item => {
-				return listFilter == null || item.name.match("^" + listFilter.customFilter + ".+");
+				return listFilter == null || item.name.toLowerCase().match("^" + listFilter.customFilter.toLowerCase() + ".+");
 			});
 	});
 
