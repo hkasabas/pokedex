@@ -1,7 +1,7 @@
 
 export const AppConfig  = {
 	cache : {
-		enabled : true
+		enabled : false
 	},
 
 
