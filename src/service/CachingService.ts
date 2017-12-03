@@ -1,3 +1,5 @@
+import {AppConfig} from "./appConfig";
+
 
 const LocalStorageAdapter = {
 
@@ -23,16 +25,30 @@ const LocalStorageAdapter = {
 export class CachingService {
 	private static adapter = LocalStorageAdapter;
 
-	static readKey<T>(key : string) : T {
+	private static cacheEnabled = AppConfig.cache.enabled;
+
+	static readKey<T>(key : string) : T | null {
+		if (!CachingService.cacheEnabled) {
+			return null;
+		}
+
 		let val = this.adapter.readCache(key);
 		return val != null ? JSON.parse(val) : val;
 	}
 
 	static setKey<T>(key : string, value : T) {
+		if (!CachingService.cacheEnabled) {
+			return;
+		}
+
 		this.adapter.writeCache(key, JSON.stringify(value));
 	}
 
 	static clearKey(key : string) : void {
+		if (!CachingService.cacheEnabled) {
+			return;
+		}
+
 		this.adapter.clearCache(key);
 	}
 
