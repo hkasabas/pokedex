@@ -64,8 +64,8 @@ export class PokemonView extends React.Component<IProps, any> {
 						</div>
 						<div className="col-sm col-9">
 							{this.props.pokemon.types
-								.map((type) => {
-									return (<span><span className="badge badge-secondary">{type.type.name}</span>&nbsp;</span>);
+								.map((type, index) => {
+									return (<span key={"type-" + index}><span className="badge badge-secondary">{type.type.name}</span>&nbsp;</span>);
 								})
 							}
 						</div>
@@ -98,9 +98,9 @@ export class PokemonView extends React.Component<IProps, any> {
 						</div>
 						<div className="col-sm col-9">
 							{this.props.pokemon.abilities
-								.map((ability) => {
+								.map((ability, index) => {
 									return (
-										<div>
+										<div  key={"ability-" + index}>
 											{ability.ability.name} {ability.is_hidden ? (<small>[hidden ability]</small>) : ""}
 										</div>);
 								})
@@ -128,7 +128,7 @@ export class PokemonView extends React.Component<IProps, any> {
 							{this.props.pokemon.moves
 								.map((move, index) => {
 									return (
-										<tr>
+										<tr key={"move-" + index}>
 											<th scope="row">{index + 1}</th>
 											<td>{move.move.name}</td>
 											<td>TODO</td>
