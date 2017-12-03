@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Builds the app for production to the `build` folder.<br>
 
 
-#### Prject structure
+#### Project structure
 
 App UI is built using React components written in TypeScript.
 
