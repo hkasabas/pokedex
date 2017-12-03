@@ -35,7 +35,6 @@ export class AppLayoutSidebar extends React.Component <IProps, IState> {
 			sidebarOpen : props.open
 		};
 
-		this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
 		this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
 	}
 
@@ -80,18 +79,13 @@ export class AppLayoutSidebar extends React.Component <IProps, IState> {
 				</AppLayoutPageContent>
 			</AppLayoutPage>
 		);
-		var sidebarProps = {
-			sidebar : this.state.sidebarOpen,
-			docked : this.state.sidebarDocked,
-			onSetOpen : this.onSetSidebarOpen
-		};
 
 		return (
 			<Sidebar
 					sidebar={sidebarContent}
 					open={this.state.sidebarOpen}
 					docked={this.state.sidebarDocked}
-					onSetOpen={this.onSetSidebarOpen}
+					onSetOpen={this.onSetSidebarOpen.bind(this)}
 					styles={{ 'sidebar' : { 'backgroundColor' : 'white' }}}>
 				{this.props.children}
 			</Sidebar>
@@ -113,7 +107,7 @@ export class AppLayoutSidebar extends React.Component <IProps, IState> {
 	}
 
 	componentWillMount() {
-		mql.addListener(this.mediaQueryChanged);
+		mql.addListener(this.mediaQueryChanged.bind(this));
 		this.setState({mql : mql, sidebarDocked : mql.matches});
 	}
 
