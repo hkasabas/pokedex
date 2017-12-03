@@ -21,7 +21,7 @@ export class ListFilter extends React.Component<IProps, any> {
 				<input
 					type="search"
 					name="customFilter"
-					placeholder="Search ..."
+					placeholder="Filter ..."
 					value={this.getCustomFilterValue()}
 					onChange={this.onCustomFilterChange.bind(this)}
 					className="form-control"/>
