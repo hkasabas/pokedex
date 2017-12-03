@@ -1,0 +1,84 @@
+
+/* -------------------- COMMON ---------- */
+
+HTML, BODY {
+	margin: 0;
+	body: 0;
+
+	font-family: "sans-serif";
+	font-weight: 300;
+	background-color: #fafaf5;
+}
+
+
+/* -------------------- LAYOUT ---------- */
+
+.pokedex-layoutMain {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.pokedex-layoutPage {
+	display: flex;
+	flex-direction: column;
+}
+
+.pokedex-layoutPage__header {
+	background-color: #03a9f4;
+	color: white;
+	font-size: 1.3rem;
+	padding: 1.3rem;
+	font-weight: 400;
+}
+
+.pokedex-layoutPage__menuToggler {
+	text-decoration: none;
+	margin-right: 1rem;
+	color: inherit;
+}
+
+.pokedex-layoutPage__content {
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+/* -------------------- COMMON ---------- */
+
+.pokedex-common__itemList {
+	list-style: none;
+	padding-left: 0;
+}
+
+
+/* -------------------- LIST FILTER ---------- */
+
+.pokedex-navigation__container {
+	padding: 2rem 5rem 2rem 1rem;
+}
+
+.pokedex-navigation__list {
+}
+
+.pokedex-navigation__listItem {
+	padding: 0.5rem 0;
+}
+
+
+/* -------------------- LIST FILTER ---------- */
+
+.pokedex-listFilter__container {
+	padding: 1.3rem;
+}
+
+
+/* -------------------- POKEMON LIST ---------- */
+
+.pokedex-pokemonList__container {
+	display: flex;
+	height: 100%;
+	overflow: auto;
+}
